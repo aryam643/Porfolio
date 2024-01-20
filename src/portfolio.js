@@ -9,7 +9,7 @@ const about = {
   role: 'Front End Developer and ML Enthusiast',
   description:
     'I am currently a pre-final year student at Jaypee University of Information Technology, pursuing my B.Tech here. I am a self-taught Front-End Developer, currently delving deeper into Machine Learning. I believe that to be successful in life, one needs to be obsessive about their dreams and keep working towards them.',
-  resume: 'https://purple-bird-98.tiiny.site',
+  resume: 'https://indigo-fionna-17.tiiny.site',
   social: {
     linkedin: 'https://www.linkedin.com/in/aryamsharma/',
     github: 'https://github.com/aryam643',
