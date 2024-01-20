@@ -8,7 +8,7 @@ const about = {
   name: 'Aryam',
   role: 'Front End Developer and ML Enthusiast',
   description:
-    'I am currently a pre-final year student at Jaypee University of Information Technology, pursuing my B.Tech here. I am a self-taught Front-End Developer, currently delving deeper into Machine Learning. I believe that to be successful in life, one needs to be obsessive about their dreams and keep working towards them.',
+    'Welcome to my portfolio! I am a pre-final year student at Jaypee University of Information Technology, dedicatedly pursuing my B.Tech. My journey as a self-taught Front-End Developer has equipped me with the skills to create captivating user interfaces. Currently, my focus extends to exploring the intricacies of Machine Learning.',
   resume: 'https://indigo-fionna-17.tiiny.site',
   social: {
     linkedin: 'https://www.linkedin.com/in/aryamsharma/',
