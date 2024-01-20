@@ -1,6 +1,6 @@
 const header = {
   homepage: 'https://github.com/aryam643',
-  title: 'Ary',
+  title: 'Aryam',
 }
 
 const about = {
