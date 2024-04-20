@@ -1,15 +1,15 @@
 const header = {
   homepage: 'https://github.com/aryam643',
-  title: 'Aryam',
+  title: 'Aryam Sharma',
 }
 
 const about = {
   // all the properties are optional - can be left empty or deleted
-  name: 'Aryam',
-  role: 'Front End Developer and ML Enthusiast',
+  name: 'Aryam Sharma',
+  role: 'Machine Learning Enthusiast & Front-End Developer',
   description:
-    'Welcome to my portfolio! I am a pre-final year student at Jaypee University of Information Technology, dedicatedly pursuing my B.Tech. My journey as a self-taught Front-End Developer has equipped me with the skills to create captivating user interfaces. Currently, my focus extends to exploring the intricacies of Machine Learning.',
-  resume: 'https://indigo-fionna-17.tiiny.site',
+    "I am a pre-final year student at Jaypee University of Information Technology, fervently dedicated to advancing my skills in the realm of technology. Driven by a relentless curiosity, my primary focus lies in the dynamic fields of Machine Learning, Deep Learning, and Data Science. Through rigorous exploration and hands-on experience, I am delving into the intricacies of predictive analytics, pattern recognition, and artificial intelligence algorithms.",
+  resume: 'https://resumearyam.tiiny.site',
   social: {
     linkedin: 'https://www.linkedin.com/in/aryamsharma/',
     github: 'https://github.com/aryam643',
@@ -18,6 +18,13 @@ const about = {
 }
 
 const projects = [
+  {
+    name: 'Landslide Prediction',
+    description:
+      'This Project aims to develop a Bi-Directional LSTM Model for Accurate and Real-Time Landslide Detection: A Case Study in Mawiongrim, Meghalaya, India',
+    stack: ['Python','Machine Learning','Deep Learning','RNN','Tensorflow','Keras','Pandas','NumPy','Matplotlib','Scikit-learn','Seaborn','Jupyter','Google Colab'],
+    sourceCode: 'https://github.com/aryam643/Landslide_prediction',
+  },
   {
     name: 'Cyberdect',
     description:
