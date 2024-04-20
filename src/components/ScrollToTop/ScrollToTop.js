@@ -18,6 +18,8 @@ const ScrollToTop = () => {
 <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <ArrowUpwardIcon fontSize='large' />
         <span className="sr-only">Scroll to top</span>
+        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+
       </button>
     </div>
   ) : null;
