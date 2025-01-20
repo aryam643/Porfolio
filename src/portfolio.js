@@ -7,9 +7,8 @@ const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Aryam Sharma',
   role: 'Software Devlopment Engineer',
-  description:
-    "I am a pre-final year student at Jaypee University of Information Technology, fervently dedicated to advancing my skills in the realm of technology. Driven by a relentless curiosity, my primary focus lies in the dynamic fields of Machine Learning, Deep Learning, and Data Science. Through rigorous exploration and hands-on experience, I am delving into the intricacies of predictive analytics, pattern recognition, and artificial intelligence algorithms.",
-  resume: 'https://resumearyam.tiiny.site',
+  description:"Hi, I'm Aryam Sharma, a dedicated software developer with a passion for crafting efficient and innovative solutions. With expertise in backend development, full-stack frameworks, and modern technologies, I specialize in building scalable applications and seamless user experiences. My journey combines technical proficiency with creativity, transforming ideas into impactful digital realities.",
+  resume: 'https://drive.google.com/file/d/1t7DsEhPmNeRFaaee0x9q_SO5-66PLpeh/view?usp=drive_link',
   social: {
     linkedin: 'https://www.linkedin.com/in/aryamsharma/',
     github: 'https://github.com/aryam643',
@@ -20,7 +19,7 @@ const about = {
 const projects = [
   {
     name:'Whisper Transcribe',
-    description:'Developed a full-stack transcription application using React for the frontend and Django for the backend.Leveraged OpenAI’s Whisper model for accurate audio and video transcription.Integrated TypeScript and JavaScript for frontend development, ensuring type safety and improved code quality.Implemented a user-friendly interface with Material-UI and Tailwind CSS for a seamless user experience.Implemented a RESTful API for efficient communication between the frontend and backend, ensuring optimal performance and',
+    description:'Developed a full-stack transcription application using React for the frontend and Django for the backend.Leveraged OpenAI’s Whisper model for accurate audio and video transcription.',
     stack:['React', 'Django', 'OpenAI Whisper', 'TypeScript', 'Python', 'Material-UI', 'Tailwind CSS', 'RESTful API'],
     sourceCode:'https://github.com/aryam643/Aud_describe'
   },
