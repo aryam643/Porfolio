@@ -6,7 +6,7 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Aryam Sharma',
-  role: 'Machine Learning Enthusiast & Front-End Developer',
+  role: 'Software Devlopment Engineer',
   description:
     "I am a pre-final year student at Jaypee University of Information Technology, fervently dedicated to advancing my skills in the realm of technology. Driven by a relentless curiosity, my primary focus lies in the dynamic fields of Machine Learning, Deep Learning, and Data Science. Through rigorous exploration and hands-on experience, I am delving into the intricacies of predictive analytics, pattern recognition, and artificial intelligence algorithms.",
   resume: 'https://resumearyam.tiiny.site',
@@ -19,11 +19,24 @@ const about = {
 
 const projects = [
   {
-    name: 'Landslide Prediction',
+    name:'Whisper Transcribe',
+    description:'Developed a full-stack transcription application using React for the frontend and Django for the backend.Leveraged OpenAI’s Whisper model for accurate audio and video transcription.Integrated TypeScript and JavaScript for frontend development, ensuring type safety and improved code quality.Implemented a user-friendly interface with Material-UI and Tailwind CSS for a seamless user experience.Implemented a RESTful API for efficient communication between the frontend and backend, ensuring optimal performance and',
+    stack:['React', 'Django', 'OpenAI Whisper', 'TypeScript', 'Python', 'Material-UI', 'Tailwind CSS', 'RESTful API'],
+    sourceCode:'https://github.com/aryam643/Aud_describe'
+  },
+  {
+    name:'Video Connect',
+    description:'This project is  a video calling application using React for the frontend and Node.js for the backend.Implemented real-time communication with WebSockets for seamless video calling between users.',
+    stack:['React', 'Node.js', 'WebSockets', 'JavaScript'],
+    sourceCode:'https://github.com/aryam643/video_call'
+  },
+  {
+    name: 'WeChat',
     description:
-      'This Project aims to develop a Bi-Directional LSTM Model for Accurate and Real-Time Landslide Detection: A Case Study in Mawiongrim, Meghalaya, India',
-    stack: ['Python','Machine Learning','Deep Learning','RNN','Tensorflow','Keras','Pandas','NumPy','Matplotlib','Scikit-learn','Seaborn','Jupyter','Google Colab'],
-    sourceCode: 'https://github.com/aryam643/Landslide_prediction',
+      'Real-time React chat app powered by Firebase for seamless, instant messaging. Effortlessly connect users, ensuring a dynamic and responsive communication experience',
+    stack: ['React', 'Firebase', 'JavaScript', 'HTML','CSS'],
+    sourceCode: 'https://github.com/aryam643/WeChat',
+    livePreview: 'https://we-chat-hqgc.vercel.app/',
   },
   {
     name: 'Cyberdect',
@@ -34,6 +47,13 @@ const projects = [
     livePreview: 'https://cyberdect.netlify.app/',
   },
   {
+    name: 'Landslide Prediction',
+    description:
+      'This Project aims to develop a Bi-Directional LSTM Model for Accurate and Real-Time Landslide Detection: A Case Study in Mawiongrim, Meghalaya, India',
+    stack: ['Python','Machine Learning','Deep Learning','RNN','Tensorflow','Keras','Pandas','NumPy','Matplotlib','Scikit-learn','Seaborn','Jupyter','Google Colab'],
+    sourceCode: 'https://github.com/aryam643/Landslide_prediction',
+  },
+  {
     name: 'Parkinsons Disease Detection',
     description:
       'This project aims to predict Parkinsons disease based on voice features. It utilizes machine learning techniques to analyze voice recordings and make predictions about the presence of Parkinsons disease.',
@@ -41,14 +61,7 @@ const projects = [
     sourceCode: 'https://github.com/aryam643/Parkinsons-Detection-Using-SVM',
     
   },
-  {
-    name: 'WeChat',
-    description:
-      'Real-time React chat app powered by Firebase for seamless, instant messaging. Effortlessly connect users, ensuring a dynamic and responsive communication experience',
-    stack: ['React', 'Firebase', 'JavaScript', 'HTML','CSS'],
-    sourceCode: 'https://github.com/aryam643/WeChat',
-    livePreview: 'https://we-chat-hqgc.vercel.app/',
-  },
+
   {
     name: 'Terminal Link',
     description:
@@ -76,7 +89,6 @@ const skills = [
     'CSS',
     'HTML',
     'Data Structures and Algorithms(DSA)',
-    'Dart',
     'NumPy',
     'Matplotlib',
     'TensorFlow',
@@ -85,19 +97,10 @@ const skills = [
     'Pandas',
     'React.js',
     'Tailwind CSS',
-    'Flutter',
-    'Arduino',
     'Git',
     'GitHub',
-    'AWS',
-    'Linux',
-    'Windows',
-    'Figma',
-    'Adobe Photoshop',
     'Jupyter',
-    'Android Studio',
-    'Visual Studio',
-    'Adobe Illustrator',
+    'Visual Studio Code',
 ]
 
 const contact = {
