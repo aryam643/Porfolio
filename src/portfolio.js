@@ -7,7 +7,7 @@ const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Aryam Sharma',
   role: 'Software Devlopment Engineer',
-  description:"Hi, I'm Aryam Sharma, a dedicated software developer with a passion for crafting efficient and innovative solutions. With expertise in backend development, full-stack frameworks, and modern technologies, I specialize in building scalable applications and seamless user experiences. My journey combines technical proficiency with creativity, transforming ideas into impactful digital realities.",
+  description:"Hi, I'm Aryam Sharma, a dedicated software developer with a passion for crafting efficient and innovative solutions. With expertise in backend development, full-stack frameworks, and modern technologies.",
   resume: 'https://drive.google.com/file/d/1t7DsEhPmNeRFaaee0x9q_SO5-66PLpeh/view?usp=drive_link',
   social: {
     linkedin: 'https://www.linkedin.com/in/aryamsharma/',
