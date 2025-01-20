@@ -27,7 +27,8 @@ const projects = [
     name:'Video Connect',
     description:'This project is  a video calling application using React for the frontend and Node.js for the backend.Implemented real-time communication with WebSockets for seamless video calling between users.',
     stack:['React', 'Node.js', 'WebSockets', 'JavaScript'],
-    sourceCode:'https://github.com/aryam643/video_call'
+    sourceCode:'https://github.com/aryam643/video_call',
+    livePreview:'https://video-call-gules.vercel.app/'
   },
   {
     name: 'WeChat',
