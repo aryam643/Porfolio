@@ -13,70 +13,60 @@ const Projects = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const projects = [
-    {
-      name: "Whisper Transcribe API",
-      description:
-        "High-performance transcription microservice using OpenAI's Whisper model. Built with Django REST framework, handles concurrent requests with Redis queue system and supports multiple audio formats.",
-      stack: ["Django", "Redis", "Celery", "OpenAI Whisper", "PostgreSQL", "Docker", "AWS S3"],
-      sourceCode: "https://github.com/aryam643/Aud_describe",
-      category: "Backend API",
-      icon: Server,
-      metrics: ["99.9% uptime", "500ms avg response", "1000+ files/day"],
-    },
-    {
-      name: "Real-time Video Communication System",
-      description:
-        "Scalable video calling backend with WebSocket connections, room management, and signaling server. Supports multiple concurrent sessions with load balancing and auto-scaling.",
-      stack: ["Node.js", "Socket.io", "Redis", "WebRTC", "MongoDB", "Docker Swarm"],
-      sourceCode: "https://github.com/aryam643/video_call",
-      livePreview: "https://video-call-gules.vercel.app/",
-      category: "Real-time System",
-      icon: Zap,
-      metrics: ["100+ concurrent users", "50ms latency", "Auto-scaling"],
-    },
-    {
-      name: "Distributed Chat Infrastructure",
-      description:
-        "Microservices-based chat system with message queuing, user presence tracking, and horizontal scaling. Features include message persistence, file sharing, and real-time notifications.",
-      stack: ["Node.js", "Firebase", "Redis", "WebSocket", "Microservices", "Load Balancer"],
-      sourceCode: "https://github.com/aryam643/WeChat",
-      livePreview: "https://we-chat-hqgc.vercel.app/",
-      category: "Microservices",
-      icon: Users,
-      metrics: ["10K+ messages/min", "Multi-region", "99.99% availability"],
-    },
-    {
-      name: "ML-Powered Cyberbullying Detection API",
-      description:
-        "RESTful API service for real-time text classification using SVM algorithms. Includes data preprocessing pipeline, model versioning, and A/B testing framework for continuous improvement.",
-      stack: ["Python", "Flask", "Scikit-learn", "PostgreSQL", "Docker", "MLflow"],
-      sourceCode: "https://github.com/aryam643/CyberDect",
-      livePreview: "https://cyberdect.netlify.app/",
-      category: "ML Backend",
-      icon: Database,
-      metrics: ["95% accuracy", "200ms inference", "1M+ predictions"],
-    },
-    {
-      name: "Time-Series Prediction Engine",
-      description:
-        "LSTM-based prediction system for landslide detection with real-time data ingestion, model training pipeline, and alert system. Processes sensor data and provides early warning notifications.",
-      stack: ["Python", "TensorFlow", "Apache Kafka", "InfluxDB", "FastAPI", "Kubernetes"],
-      sourceCode: "https://github.com/aryam643/Landslide_prediction",
-      category: "Data Pipeline",
-      icon: Database,
-      metrics: ["Real-time processing", "TB+ data handled", "24/7 monitoring"],
-    },
-    {
-      name: "Multi-threaded Chat Server",
-      description:
-        "Low-level socket programming implementation of a chat server supporting multiple concurrent connections. Features include custom protocol design, thread pooling, and connection management.",
-      stack: ["C++", "Socket Programming", "Multithreading", "Linux", "TCP/IP"],
-      sourceCode: "https://github.com/aryam643/TerminalLink",
-      category: "System Programming",
-      icon: Server,
-      metrics: ["1000+ connections", "Custom protocol", "Zero downtime"],
-    },
-  ]
+  {
+    name: "ERP System Optimization & Development",
+    description:
+      "Optimized in-house ERP system (XLPlat) by migrating TCL modules to Django. Implemented resume parsing, attendance, resignation workflows, billing, calendar, and email systems.",
+    stack: ["Django", "PostgreSQL", "Tailwind CSS", "TCL", "Git", "JavaScript"],
+    sourceCode: "https://github.com/aryam643",
+    category: "Enterprise Backend",
+    icon: Server,
+    metrics: ["TCL to Django", "5+ modules", "Live Production"],
+  },
+  {
+    name: "Live Polling System",
+    description:
+      "Full-stack live polling platform with real-time voting, live chat, and WebSocket updates. Built with Next.js, Node.js, and TypeScript with modern responsive UI.",
+    stack: ["Next.js", "Node.js", "TypeScript", "WebSockets", "Tailwind CSS"],
+    sourceCode: "https://github.com/aryam643/LivePolling",
+    livePreview: "https://live-polliing-system.netlify.app/",
+    category: "Real-time App",
+    icon: Zap,
+    metrics: ["Live chat", "Socket sync", "1000+ votes/sec"],
+  },
+  {
+    name: "MBP-10 Orderbook from MBO Data",
+    description:
+      "High-frequency C++ module for reconstructing MBP-10 snapshots from Market-by-Order data streams with sub-microsecond latency for HFT applications.",
+    stack: ["C++17", "DSA", "Performance Opt.", "STL"],
+    sourceCode: "https://github.com/aryam643/Orderbook",
+    category: "System Programming",
+    icon: Database,
+    metrics: ["55K ops/sec", "O(log n) time", "μs latency"],
+  },
+  {
+    name: "Collaborative Whiteboard",
+    description:
+      "Real-time collaborative whiteboard using WebSockets. Supports drawing, room-based sessions, persistent history, and MongoDB storage.",
+    stack: ["React", "Socket.io", "Node.js", "MongoDB", "Canvas API"],
+    sourceCode: "https://github.com/aryam643/white_board",
+    livePreview: "https://drive.google.com/file/d/1bE0B6OLID62vj6j7E5fObxuvIBXIQxWE/view?usp=sharing",
+    category: "Real-time System",
+    icon: Users,
+    metrics: ["Canvas sync", "Room join", "Live drawing"],
+  },
+  {
+    name: "E-commerce Backend API",
+    description:
+      "FastAPI-based backend with RESTful APIs for managing products and orders using MongoDB and async I/O. Features filtering, pagination, and autogenerated Swagger docs.",
+    stack: ["FastAPI", "Python 3.11", "MongoDB", "Motor", "Pydantic v2"],
+    sourceCode: "https://github.com/aryam643/_fastapi_",
+    category: "Backend API",
+    icon: Server,
+    metrics: ["Async MongoDB", "Swagger Docs", "Order & Product APIs"],
+  },
+]
+
 
   return (
     <section id="projects" className="py-20 bg-secondary/50">
