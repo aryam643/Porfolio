@@ -17,7 +17,7 @@ const Experience = () => {
       company: "TT Consultants",
       location: "Mohali",
       period: "2025 - Present",
-      type: "Full-time",
+      type: "Internship",
       achievements: [
         "Developed and optimized ERP modules by migrating from TCL to Django, improving system performance and scalability by 40%.",
         "Implemented frontend and backend components, integrating API communication and database operations with 95% efficiency.",
@@ -29,7 +29,7 @@ const Experience = () => {
       company: "Pragamatic Silicon",
       location: "Noida",
       period: "2024",
-      type: "Full-time",
+      type: "Internship",
       achievements: [
         "Engineered login and payment gateway pages with Razorpay integration, ensuring secure and seamless transaction processing.",
         "Collaborated with backend team to implement RESTful API endpoints for payment gateway functionality",
@@ -37,10 +37,10 @@ const Experience = () => {
       technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "Raazorpay"],
     },
     {
-      title: "Software Development Intern",
-      company: "TechCorp Solutions",
-      location: "Delhi, India",
-      period: "2021 - 2022",
+      title: "Machine Learning Intern",
+      company: "IIIT Una",
+      location: "Una",
+      period: "2023-2024",
       type: "Internship",
       achievements: [
         "Demonstrated proficiency in data collection and analysis using IoT technologies, particularly in the context of Himachal Pradesh.",
