@@ -11,7 +11,6 @@ import { Github, ExternalLink, Server, Database, Zap, Users } from "lucide-react
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  
   const projects = [
   {
     name: "ERP System Optimization & Development",
