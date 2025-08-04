@@ -65,6 +65,17 @@ const Projects = () => {
     icon: Server,
     metrics: ["Async MongoDB", "Swagger Docs", "Order & Product APIs"],
   },
+    {
+    name: "My Workspace – Personal Productivity App",
+    description:
+      "A fullstack productivity app with AI-powered note summarization, task manager, auth, and modern UI. Built with Next.js, MongoDB, and Groq AI.",
+    stack: ["Next.js 15", "MongoDB", "NextAuth", "Zustand", "Groq AI", "Tailwind CSS"],
+    sourceCode: "https://github.com/aryam643",
+    livePreview: "https://take-home-my-workspace-a-personal-p.vercel.app/",
+    category: "AI-Integrated Fullstack",
+    icon: Brain,
+    metrics: ["Groq AI", "Auth + CRUD", "Modern UX"],
+  },
 ]
 
 
