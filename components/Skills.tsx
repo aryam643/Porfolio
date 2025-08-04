@@ -25,6 +25,7 @@ const Skills = () => {
       title: "Frameworks & APIs",
       skills: [
         { name: "Django/DRF", level: 85, color: "bg-green-600" },
+        { name: "React.js", level: 85, color: "bg-green-600" },
         { name: "Express.js", level: 78, color: "bg-gray-600" },
         { name: "FastAPI", level: 80, color: "bg-teal-500" },
         { name: "TensorFlow", level: 83, color: "bg-blue-400" },
