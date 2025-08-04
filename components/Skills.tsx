@@ -15,46 +15,50 @@ const Skills = () => {
     {
       title: "Backend Languages",
       skills: [
-        { name: "Python", level: 95, color: "bg-yellow-500" },
-        { name: "Node.js", level: 90, color: "bg-green-500" },
-        { name: "C++", level: 85, color: "bg-blue-500" },
-        { name: "Java", level: 80, color: "bg-red-500" },
+        { name: "Python", level: 85, color: "bg-yellow-500" },
+        { name: "Node.js", level: 80, color: "bg-green-500" },
+        { name: "C++", level: 75, color: "bg-blue-500" },
+        { name: "TCL", level: 80, color: "bg-red-500" },
       ],
     },
     {
       title: "Frameworks & APIs",
       skills: [
-        { name: "Django/DRF", level: 95, color: "bg-green-600" },
-        { name: "Express.js", level: 90, color: "bg-gray-600" },
-        { name: "FastAPI", level: 88, color: "bg-teal-500" },
-        { name: "Flask", level: 85, color: "bg-blue-400" },
+        { name: "Django/DRF", level: 85, color: "bg-green-600" },
+        { name: "Express.js", level: 78, color: "bg-gray-600" },
+        { name: "FastAPI", level: 80, color: "bg-teal-500" },
+        { name: "TensorFlow", level: 83, color: "bg-blue-400" },
+        { name: "Pandas", level: 80, color: "bg-blue-400" },
+        { name: "Scikit-Learn", level: 75, color: "bg-blue-400" },
+        { name: "Flask", level: 83, color: "bg-blue-400" },
+
       ],
     },
     {
       title: "Databases & Storage",
       skills: [
         { name: "PostgreSQL", level: 92, color: "bg-blue-600" },
-        { name: "MongoDB", level: 88, color: "bg-green-500" },
-        { name: "Redis", level: 90, color: "bg-red-500" },
-        { name: "InfluxDB", level: 75, color: "bg-purple-500" },
+        { name: "MongoDB", level: 80, color: "bg-green-500" },
+        { name: "Redis", level: 75, color: "bg-red-500" },
+        { name: "SQLite", level: 70, color: "bg-purple-500" },
       ],
     },
     {
       title: "Cloud & DevOps",
       skills: [
-        { name: "AWS", level: 88, color: "bg-orange-500" },
-        { name: "Docker", level: 92, color: "bg-blue-500" },
-        { name: "Kubernetes", level: 80, color: "bg-blue-600" },
-        { name: "CI/CD", level: 85, color: "bg-green-600" },
+        { name: "AWS", level: 80, color: "bg-orange-500" },
+        { name: "Docker", level: 85, color: "bg-blue-500" },
+        { name: "Kubernetes", level: 60, color: "bg-blue-600" },
+        { name: "CI/CD", level: 75, color: "bg-green-600" },
       ],
     },
     {
       title: "System Design",
       skills: [
-        { name: "Microservices", level: 90, color: "bg-purple-600" },
+        { name: "Microservices", level: 80, color: "bg-purple-600" },
         { name: "Load Balancing", level: 85, color: "bg-indigo-500" },
-        { name: "Caching", level: 88, color: "bg-red-600" },
-        { name: "Message Queues", level: 82, color: "bg-yellow-600" },
+        { name: "Caching", level: 82, color: "bg-red-600" },
+        { name: "Message Queues", level: 87, color: "bg-yellow-600" },
       ],
     },
     {
@@ -63,7 +67,7 @@ const Skills = () => {
         { name: "Git", level: 95, color: "bg-orange-600" },
         { name: "Linux", level: 90, color: "bg-gray-700" },
         { name: "Nginx", level: 85, color: "bg-green-700" },
-        { name: "Elasticsearch", level: 78, color: "bg-yellow-500" },
+        { name: "Elasticsearch", level: 75, color: "bg-yellow-500" },
       ],
     },
   ]
