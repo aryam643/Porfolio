@@ -152,14 +152,9 @@ const Skills = () => {
             {[
               "GraphQL",
               "WebSockets",
-              "gRPC",
-              "Apache Kafka",
+              "GCP",
               "RabbitMQ",
-              "Prometheus",
-              "Grafana",
               "Jenkins",
-              "Terraform",
-              "Ansible",
               "Celery",
               "Socket.io",
               "JWT",
@@ -167,7 +162,6 @@ const Skills = () => {
               "SSL/TLS",
               "API Gateway",
               "Service Mesh",
-              "Istio",
             ].map((tech, index) => (
               <motion.div
                 key={tech}
