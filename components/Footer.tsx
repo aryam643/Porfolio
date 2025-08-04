@@ -25,7 +25,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="space-y-2">
             <p className="text-muted-foreground font-mono">
-              © 2024 Aryam Sharma. Built with Next.js, TypeScript & Three.js
+              © 2025 Aryam Sharma. Built with Next.js, TypeScript & Three.js
             </p>
             <motion.p
               className="text-sm text-muted-foreground flex items-center justify-center gap-2"
