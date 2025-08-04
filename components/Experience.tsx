@@ -13,32 +13,28 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Senior Backend Developer",
-      company: "Tech Innovations Inc.",
-      location: "Remote",
-      period: "2023 - Present",
+      title: "  Software Product Developer Intern",
+      company: "TT Consultants",
+      location: "Mohali",
+      period: "2025 - Present",
       type: "Full-time",
       achievements: [
-        "Architected microservices handling 1M+ daily requests",
-        "Reduced API response time by 60% through optimization",
-        "Led team of 5 developers in building scalable systems",
-        "Implemented CI/CD pipelines reducing deployment time by 80%",
+        "Developed and optimized ERP modules by migrating from TCL to Django, improving system performance and scalability by 40%.",
+        "Implemented frontend and backend components, integrating API communication and database operations with 95% efficiency.",
       ],
-      technologies: ["Python", "Django", "PostgreSQL", "Redis", "AWS", "Docker", "Kubernetes"],
+      technologies: ["Python", "Django", "PostgreSQL", "Redis", "AWS", "Docker", "TCL", "Javascript"],
     },
     {
-      title: "Backend Developer",
-      company: "StartupXYZ",
-      location: "Bangalore, India",
-      period: "2022 - 2023",
+      title: "React Developer Intern",
+      company: "Pragamatic Silicon",
+      location: "Noida",
+      period: "2024",
       type: "Full-time",
       achievements: [
-        "Built RESTful APIs serving 100K+ users",
-        "Designed database schema for multi-tenant architecture",
-        "Integrated third-party payment gateways",
-        "Implemented real-time notifications system",
+        "Engineered login and payment gateway pages with Razorpay integration, ensuring secure and seamless transaction processing.",
+        "Collaborated with backend team to implement RESTful API endpoints for payment gateway functionality",
       ],
-      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "AWS Lambda", "Stripe API"],
+      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "Raazorpay"],
     },
     {
       title: "Software Development Intern",
@@ -47,12 +43,10 @@ const Experience = () => {
       period: "2021 - 2022",
       type: "Internship",
       achievements: [
-        "Developed automated testing frameworks",
-        "Contributed to open-source projects",
-        "Optimized database queries improving performance by 40%",
-        "Collaborated with cross-functional teams",
+        "Demonstrated proficiency in data collection and analysis using IoT technologies, particularly in the context of Himachal Pradesh.",
+        "Acquired knowledge and practical experience in Artificial Neural Networks (ANN) and Convolutional Neural Networks (CNN), enhancing understanding of foundational machine learning techniques.",
       ],
-      technologies: ["Python", "Flask", "MySQL", "Git", "Jenkins", "Pytest"],
+      technologies: ["Python", "Deep Learning", "Bi-LSTM", "Pytest"],
     },
   ]
 
