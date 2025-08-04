@@ -128,7 +128,7 @@ const Hero = () => {
           >
             <Button size="lg" className="group pulse-glow" asChild>
               <a
-                href="https://drive.google.com/file/d/1t7DsEhPmNeRFaaee0x9q_SO5-66PLpeh/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1zsbUNXG--TRqUCQi0iBEdEHlvuX2RRRc/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
               >
