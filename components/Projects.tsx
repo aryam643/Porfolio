@@ -71,7 +71,6 @@ const Projects = () => {
       "A fullstack productivity app with AI-powered note summarization, task manager, auth, and modern UI. Built with Next.js, MongoDB, and Groq AI.",
     stack: ["Next.js", "MongoDB", "NextAuth", "Zustand", "Groq AI", "Tailwind CSS"],
     sourceCode: "https://github.com/aryam643/Take-Home-My-Workspace-A-Personal-Productivity-App.git",
-    livePreview: "https://take-home-my-workspace-a-personal-p.vercel.app/",
     category: "AI-Integrated Fullstack",
     icon: Brain,
     metrics: ["Groq AI", "Auth + CRUD", "Modern UX"],
