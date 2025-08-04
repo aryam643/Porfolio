@@ -11,6 +11,7 @@ import { Github, ExternalLink, Server, Database, Zap, Users } from "lucide-react
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+
   const projects = [
   {
     name: "ERP System Optimization & Development",
@@ -28,6 +29,7 @@ const Projects = () => {
       "Full-stack live polling platform with real-time voting, live chat, and WebSocket updates. Built with Next.js, Node.js, and TypeScript with modern responsive UI.",
     stack: ["Next.js", "Node.js", "TypeScript", "WebSockets", "Tailwind CSS"],
     sourceCode: "https://github.com/aryam643/LivePolling",
+    livePreview: "https://live-polliing-system.netlify.app/",
     category: "Real-time App",
     icon: Zap,
     metrics: ["Live chat", "Socket sync", "1000+ votes/sec"],
@@ -63,18 +65,16 @@ const Projects = () => {
     icon: Server,
     metrics: ["Async MongoDB", "Swagger Docs", "Order & Product APIs"],
   },
-  {
-    name: "My Workspace – Personal Productivity App",
-    description:
-      "A fullstack productivity app with AI-powered note summarization, task manager, auth, and modern UI. Built with Next.js, MongoDB, and Groq AI.",
-    stack: ["Next.js 15", "MongoDB", "NextAuth", "Zustand", "Groq AI", "Tailwind CSS"],
-    sourceCode: "https://github.com/aryam643",
-    livePreview: "https://take-home-my-workspace-a-personal-p.vercel.app/",
-    category: "AI-Integrated Fullstack",
-    icon: Brain,
-    metrics: ["Groq AI", "Auth + CRUD", "Modern UX"],
-  },
 ]
+
+
+
+
+
+
+
+
+
 
 
 
