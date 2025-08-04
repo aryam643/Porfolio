@@ -65,7 +65,7 @@ const Contact = () => {
   ]
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "aryamsharma59@gmail.com", href: "mailto:aryamsharma59@gmail.com" },
+    { icon: Mail, label: "Email", value: "aryamsharma.dev@gmail.com", href: "mailto:aryamsharma.dev@gmail.com" },
     { icon: MapPin, label: "Location", value: "Available for Remote Work", href: null },
     { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
     { icon: Coffee, label: "Availability", value: "Open to opportunities", href: null },
