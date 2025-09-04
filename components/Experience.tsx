@@ -16,7 +16,7 @@ const Experience = () => {
       title: "  Software Product Developer Intern",
       company: "TT Consultants",
       location: "Mohali",
-      period: "2025 - Present",
+      period: "Jan. 2025 - Aug. 2025",
       type: "Internship",
       achievements: [
         "Developed and optimized ERP modules by migrating from TCL to Django, improving system performance and scalability by 40%.",
