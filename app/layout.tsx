@@ -17,7 +17,9 @@ export const metadata: Metadata = {
   title: "Aryam Sharma - Backend Developer & Software Product Engineer",
   description:
     "Senior Backend Developer & Software Product Engineer specializing in scalable systems, microservices architecture, and high-performance applications. Expert in Python, Node.js, and cloud technologies.",
-    generator: 'v0.dev'
+  icons: {
+    icon: "/placeholder-logo.svg",
+  },
 }
 
 export default function RootLayout({
