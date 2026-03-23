@@ -1,22 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { Toaster } from "@/components/ui/toaster"
-
-const inter = Inter({ subsets: ["latin"] })
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+import { portfolioData } from "@/lib/portfolio-data"
 
 export const metadata: Metadata = {
-  title: "Aryam Sharma - Backend Developer & Software Product Engineer",
-  description:
-    "Senior Backend Developer & Software Product Engineer specializing in scalable systems, microservices architecture, and high-performance applications. Expert in Python, Node.js, and cloud technologies.",
+  title: `${portfolioData.name} | ${portfolioData.headline}`,
+  description: portfolioData.summary,
   icons: {
     icon: "/placeholder-logo.svg",
   },
@@ -29,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${jetbrainsMono.variable}`}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
           {children}

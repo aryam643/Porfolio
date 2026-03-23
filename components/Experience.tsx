@@ -1,147 +1,107 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, TrendingUp } from "lucide-react"
+import { portfolioData } from "@/lib/portfolio-data"
 
 const Experience = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  const experiences = [
-    {
-      title: "  Software Product Developer Intern",
-      company: "TT Consultants",
-      location: "Mohali",
-      period: "Jan. 2025 - Aug. 2025",
-      type: "Internship",
-      achievements: [
-        "Developed and optimized ERP modules by migrating from TCL to Django, improving system performance and scalability by 40%.",
-        "Implemented frontend and backend components, integrating API communication and database operations with 95% efficiency.",
-      ],
-      technologies: ["Python", "Django", "PostgreSQL", "Redis", "AWS", "Docker", "TCL", "Javascript"],
-    },
-    {
-      title: "React Developer Intern",
-      company: "Pragamatic Silicon",
-      location: "Noida",
-      period: "2024",
-      type: "Internship",
-      achievements: [
-        "Engineered login and payment gateway pages with Razorpay integration, ensuring secure and seamless transaction processing.",
-        "Collaborated with backend team to implement RESTful API endpoints for payment gateway functionality",
-      ],
-      technologies: ["Node.js", "Express", "MongoDB", "Socket.io", "Raazorpay"],
-    },
-    {
-      title: "Machine Learning Intern",
-      company: "IIIT Una",
-      location: "Una",
-      period: "2023-2024",
-      type: "Internship",
-      achievements: [
-        "Demonstrated proficiency in data collection and analysis using IoT technologies, particularly in the context of Himachal Pradesh.",
-        "Acquired knowledge and practical experience in Artificial Neural Networks (ANN) and Convolutional Neural Networks (CNN), enhancing understanding of foundational machine learning techniques.",
-      ],
-      technologies: ["Python", "Deep Learning", "Bi-LSTM", "Pytest"],
-    },
-  ]
+  const isInView = useInView(ref, { once: true, margin: "-120px" })
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="section-shell">
+      <div className="section-inner">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 36 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl"
         >
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Badge variant="outline" className="mb-4 font-mono">
-              {"<Experience />"}
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 code-gradient">Professional Journey</h2>
-            <p className="text-xl text-muted-foreground">
-              Building scalable systems and leading development teams across different domains
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
-              >
-                <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-primary/20">
-                  <CardHeader>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      <div>
-                        <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">
-                          {exp.title}
-                        </CardTitle>
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-muted-foreground">
-                          <span className="font-semibold text-primary">{exp.company}</span>
-                          <div className="flex items-center gap-4 text-sm">
-                            <div className="flex items-center gap-1">
-                              <MapPin className="h-4 w-4" />
-                              {exp.location}
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Calendar className="h-4 w-4" />
-                              {exp.period}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <Badge variant="secondary" className="w-fit">
-                        {exp.type}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-3 flex items-center gap-2">
-                          <TrendingUp className="h-4 w-4 text-green-500" />
-                          Key Achievements
-                        </h4>
-                        <ul className="space-y-2">
-                          {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                              <span className="text-primary mt-1.5 text-xs">▶</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold mb-3">Technologies Used</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.technologies.map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <div className="section-kicker">Experience</div>
+          <h2 className="section-title max-w-4xl">Recent work across production Django systems, product tooling, and applied frontend delivery.</h2>
+          <p className="section-copy max-w-3xl">
+            The common thread in my experience is shipping features that have to work under real use: migrations,
+            performance fixes, auth flows, internal tooling, and product surfaces that connect cleanly to backend logic.
+          </p>
         </motion.div>
+
+        <div className="relative mt-14 space-y-8">
+          <div className="absolute bottom-0 left-[7.35rem] top-0 hidden w-px bg-border/80 lg:block" />
+
+          {portfolioData.experiences.map((exp, index) => (
+            <motion.article
+              key={`${exp.company}-${exp.period}`}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+              transition={{ duration: 0.6, delay: index * 0.1 + 0.15 }}
+              className="relative grid gap-4 lg:grid-cols-[190px_1fr]"
+            >
+              <div className="lg:pt-4">
+                <div className="inline-flex rounded-full border border-border/80 bg-card/80 px-4 py-2 text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground backdrop-blur">
+                  {exp.period}
+                </div>
+                <p className="mt-4 text-sm font-medium text-muted-foreground">{exp.type}</p>
+              </div>
+
+              <div className="relative paper-card p-6 md:p-8">
+                <div className="absolute left-0 top-10 hidden h-4 w-4 -translate-x-1/2 rounded-full bg-primary ring-8 ring-background lg:block" />
+
+                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 className="text-3xl font-semibold display-font">{exp.title}</h3>
+                    <div className="mt-3 flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                      <span className="font-semibold text-foreground">{exp.company}</span>
+                      <span className="inline-flex items-center gap-2">
+                        <MapPin className="h-4 w-4" />
+                        {exp.location}
+                      </span>
+                      <span className="inline-flex items-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        {exp.period}
+                      </span>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className="rounded-full border-border/80 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em]">
+                    {`0${index + 1}`}
+                  </Badge>
+                </div>
+
+                <div className="accent-divider mt-8" />
+
+                <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                  <div>
+                    <h4 className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      <TrendingUp className="h-4 w-4 text-primary" />
+                      Key Achievements
+                    </h4>
+                    <ul className="mt-4 space-y-3">
+                      {exp.achievements.map((achievement) => (
+                        <li key={achievement} className="flex items-start gap-3 text-sm leading-7 text-muted-foreground">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-muted-foreground">Stack</h4>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {exp.technologies.map((tech) => (
+                        <Badge key={tech} variant="outline" className="rounded-full border-border/80 px-3 py-1.5 text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -1,59 +1,63 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code2, Terminal, Heart } from "lucide-react"
+import { ArrowUpRight, Code2, Heart, Terminal } from "lucide-react"
+import { portfolioData } from "@/lib/portfolio-data"
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="bg-secondary/50 py-12 border-t border-primary/10">
-      <div className="container mx-auto px-4">
+    <footer className="section-shell pb-10 pt-8">
+      <div className="section-inner">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
+          transition={{ duration: 0.7 }}
+          className="paper-card p-6 md:p-8"
         >
-          {/* Logo */}
-          <motion.div className="flex items-center justify-center space-x-2" whileHover={{ scale: 1.05 }}>
-            <div className="flex items-center space-x-1">
-              <Terminal className="h-6 w-6 text-primary" />
-              <Code2 className="h-6 w-6 text-secondary-foreground" />
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/12 text-primary">
+                  <Terminal className="h-5 w-5" />
+                </div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-secondary/70 text-foreground">
+                  <Code2 className="h-5 w-5" />
+                </div>
+              </div>
+              <h3 className="mt-6 text-4xl font-semibold display-font">{portfolioData.shortName}</h3>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+                © {currentYear} {portfolioData.name}. Designed and built as a quieter, more editorial portfolio around
+                real backend and product engineering work.
+              </p>
+              <p className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground">
+                Made with <Heart className="h-4 w-4 text-primary" /> for practical software, not fluff.
+              </p>
             </div>
-            <h3 className="text-2xl font-bold code-gradient font-mono">Aryam.dev</h3>
-          </motion.div>
 
-          {/* Copyright */}
-          <div className="space-y-2">
-            <p className="text-muted-foreground font-mono">
-              © 2025 Aryam Sharma. Built with Next.js, TypeScript & Three.js
-            </p>
-            <motion.p
-              className="text-sm text-muted-foreground flex items-center justify-center gap-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              Made with <Heart className="h-4 w-4 text-red-500 animate-pulse" /> and lots of ☕ for scalable systems
-            </motion.p>
-          </div>
-
-          {/* Tech Stack */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-2 pt-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {["Next.js", "TypeScript", "Three.js", "Framer Motion", "Tailwind CSS"].map((tech, index) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono border border-primary/20"
+            <div className="flex flex-col gap-3 md:items-end">
+              <a
+                href={portfolioData.resumeViewUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 text-sm font-medium text-foreground"
               >
-                {tech}
-              </motion.span>
-            ))}
-          </motion.div>
+                Resume
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+              <div className="flex flex-wrap gap-2 md:justify-end">
+                {["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border/75 bg-background/80 px-3 py-1.5 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>

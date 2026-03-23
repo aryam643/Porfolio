@@ -2,20 +2,20 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
-import { Mail, Send, Github, Linkedin, Instagram, MapPin, Clock, Coffee } from "lucide-react"
+import { Coffee, Github, Globe, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { portfolioData } from "@/lib/portfolio-data"
 
 const Contact = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-120px" })
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -49,7 +49,7 @@ const Contact = () => {
 
       toast({
         title: "Message sent successfully!",
-        description: "Thanks for reaching out — I'll get back to you within 24 hours.",
+        description: "Thanks for reaching out — I'll get back to you soon.",
       })
       setFormData({ name: "", email: "", message: "" })
     } catch (err: any) {
@@ -64,78 +64,122 @@ const Contact = () => {
   }
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/aryam643", label: "GitHub", color: "hover:text-gray-600" },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/aryamsharma/",
-      label: "LinkedIn",
-      color: "hover:text-blue-600",
-    },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/_aryamsharma_/",
-      label: "Instagram",
-      color: "hover:text-pink-600",
-    },
+    { icon: Github, href: "https://github.com/aryam643", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/aryamsharma/", label: "LinkedIn" },
+    { icon: Globe, href: portfolioData.website, label: "Website" },
   ]
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "aryamsharma.dev@gmail.com", href: "mailto:aryamsharma.dev@gmail.com" },
-    { icon: MapPin, label: "Location", value: "Available for Remote Work", href: null },
-    { icon: Clock, label: "Response Time", value: "Within 24 hours", href: null },
-    { icon: Coffee, label: "Availability", value: "Open to opportunities", href: null },
+    { icon: Mail, label: "Email", value: portfolioData.email, href: `mailto:${portfolioData.email}` },
+    { icon: Phone, label: "Phone", value: portfolioData.phone, href: `tel:${portfolioData.phone}` },
+    { icon: MapPin, label: "Location", value: portfolioData.location, href: null },
+    { icon: Globe, label: "Website", value: portfolioData.website.replace("https://", ""), href: portfolioData.website },
   ]
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <Badge variant="outline" className="mb-4 font-mono">
-            {"<Contact />"}
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 code-gradient">Let's Build Something Amazing</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to discuss your next backend project? I'm always excited to work on challenging problems and scalable
-            solutions. Let's connect!
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
+    <section id="contact" className="section-shell">
+      <div className="section-inner">
+        <div className="grid gap-6 xl:grid-cols-[0.92fr_1.08fr]">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            ref={ref}
+            initial={{ opacity: 0, y: 36 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+            transition={{ duration: 0.7 }}
+            className="ink-card p-7 md:p-8"
           >
-            <Card className="border-primary/20">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Mail className="h-5 w-5 text-primary" />
-                  Send me a message
-                </CardTitle>
-                <CardDescription>
-                  Whether it's about a project, collaboration, or just to say hi - I'd love to hear from you!
+            <div className="relative z-10">
+              <div className="section-kicker border-white/15 bg-white/5 text-slate-300">Contact</div>
+              <h2 className="mt-7 text-5xl font-semibold leading-[0.94] text-white display-font md:text-6xl">
+                Let&apos;s build the next useful thing.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-300">
+                I&apos;m most interested in backend-heavy product teams, full-stack roles with strong execution
+                standards, and technically honest work where reliability actually matters.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                {["Backend", "Full Stack", "Real-time Apps", "Product Engineering"].map((tag) => (
+                  <Badge key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-100 hover:bg-white/10">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+
+              <div className="mt-10 grid gap-3">
+                {contactInfo.map((info) => (
+                  <div key={info.label} className="rounded-[1.35rem] border border-white/10 bg-white/5 p-4">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-white">
+                        <info.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[0.68rem] uppercase tracking-[0.28em] text-slate-400">{info.label}</p>
+                        {info.href ? (
+                          <a href={info.href} className="mt-2 block text-base font-medium text-slate-100 hover:text-white">
+                            {info.value}
+                          </a>
+                        ) : (
+                          <p className="mt-2 text-base font-medium text-slate-100">{info.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-slate-100 transition-colors hover:bg-white/10"
+                  >
+                    <social.icon className="h-4 w-4" />
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center gap-3">
+                  <Coffee className="h-5 w-5 text-orange-300" />
+                  <p className="text-sm font-medium text-slate-100">Preferred conversations</p>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-300">
+                  Production Django work, React product interfaces, API-heavy features, platform reliability, and
+                  product engineering roles with strong execution standards.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="paper-card p-2"
+          >
+            <Card className="border-0 bg-transparent shadow-none">
+              <CardHeader className="p-5 md:p-6">
+                <CardTitle className="text-4xl font-semibold display-font">Send a message</CardTitle>
+                <CardDescription className="max-w-2xl text-base leading-7 text-muted-foreground">
+                  Whether it&apos;s a role, a project, or a collaboration idea, leave the context here and I&apos;ll get
+                  back to you.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
+              <CardContent className="p-5 pt-0 md:p-6 md:pt-0">
+                <form onSubmit={handleSubmit} className="grid gap-4">
+                  <div className="grid gap-4 md:grid-cols-2">
                     <Input
                       name="name"
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="font-mono"
+                      className="h-12 rounded-2xl border-border/80 bg-background/80"
                     />
-                  </div>
-                  <div>
                     <Input
                       name="email"
                       type="email"
@@ -143,134 +187,36 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="font-mono"
+                      className="h-12 rounded-2xl border-border/80 bg-background/80"
                     />
                   </div>
-                  <div>
-                    <Textarea
-                      name="message"
-                      placeholder="Tell me about your project or just say hello..."
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      className="font-mono"
-                    />
+                  <Textarea
+                    name="message"
+                    placeholder="Tell me what you're building, what role you're hiring for, or what problem you want help with..."
+                    rows={9}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    className="rounded-[1.5rem] border-border/80 bg-background/80"
+                  />
+                  <div className="flex flex-col gap-4 border-t border-border/80 pt-5 md:flex-row md:items-center md:justify-between">
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      Best for role outreach, collaboration, backend work, and product engineering conversations.
+                    </p>
+                    <Button type="submit" className="rounded-full bg-foreground px-6 text-background hover:bg-foreground/90" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-4 w-4" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
                   </div>
-                  <Button type="submit" className="w-full pulse-glow" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
-          >
-            {/* Contact Details */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 code-gradient">Get in Touch</h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <motion.div
-                    key={info.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    className="flex items-center space-x-4 p-4 bg-secondary/50 rounded-lg hover:bg-secondary/70 transition-colors"
-                  >
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <info.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{info.label}</p>
-                      {info.href ? (
-                        <a href={info.href} className="text-primary hover:underline font-mono text-sm">
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground font-mono text-sm">{info.value}</p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Connect with me</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`p-4 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 ${social.color}`}
-                  >
-                    <social.icon className="h-6 w-6" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              <Card className="bg-gradient-to-r from-primary/5 to-purple-500/5 border-primary/20">
-                <CardContent className="p-6">
-                  <h4 className="text-lg font-semibold mb-2 flex items-center gap-2">
-                    <Coffee className="h-5 w-5 text-primary" />
-                    Currently Available
-                  </h4>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    I'm actively looking for new opportunities in backend development, system architecture, and product
-                    engineering roles.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">Full-time</Badge>
-                    <Badge variant="secondary">Contract</Badge>
-                    <Badge variant="secondary">Remote</Badge>
-                    <Badge variant="secondary">Consulting</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Quick Response Promise */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="bg-secondary/30 rounded-lg p-6 border border-primary/10"
-            >
-              <h4 className="text-lg font-semibold mb-2 text-primary">Quick Response Guarantee</h4>
-              <p className="text-muted-foreground text-sm">
-                I typically respond to all messages within 24 hours. For urgent matters or immediate opportunities, feel
-                free to reach out on LinkedIn for faster response.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

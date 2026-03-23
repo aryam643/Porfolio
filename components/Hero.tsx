@@ -1,171 +1,213 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Instagram, Download, ChevronDown, Server, Database, Cloud } from "lucide-react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from "@react-three/drei"
+import { ArrowUpRight, Download, Github, Globe, Linkedin, Mail } from "lucide-react"
+import { portfolioData } from "@/lib/portfolio-data"
 
-const AnimatedSphere = () => {
-  return (
-    <Float speed={1.4} rotationIntensity={1} floatIntensity={2}>
-      <Sphere args={[1, 100, 200]} scale={2}>
-        <MeshDistortMaterial color="#3b82f6" attach="material" distort={0.3} speed={1.5} roughness={0} />
-      </Sphere>
-    </Float>
-  )
-}
+const socialIcons = {
+  GitHub: Github,
+  LinkedIn: Linkedin,
+  Email: Mail,
+  Website: Globe,
+} as const
 
 const Hero = () => {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/aryam643", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/aryamsharma/", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/_aryamsharma_/", label: "Instagram" },
-  ]
+  const [activeRoleIndex, setActiveRoleIndex] = useState(0)
+  const activeRole = portfolioData.roles[activeRoleIndex]
 
-  const techIcons = [
-    { icon: Server, label: "Backend Systems" },
-    { icon: Database, label: "Database Design" },
-    { icon: Cloud, label: "Cloud Architecture" },
-  ]
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveRoleIndex((current) => (current + 1) % portfolioData.roles.length)
+    }, 2200)
+
+    return () => window.clearInterval(interval)
+  }, [])
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden matrix-bg">
-      {/* 3D Background */}
-      <div className="absolute inset-0 -z-10">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <AnimatedSphere />
-          <OrbitControls enableZoom={false} enablePan={false} />
-        </Canvas>
-      </div>
+    <section id="top" className="section-shell pt-36 md:pt-40">
+      <div className="section-inner">
+        <div className="grid items-end gap-10 xl:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="section-kicker"
+            >
+              Chandigarh, India
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Available for backend and product engineering roles
+            </motion.div>
 
-      {/* Floating Tech Icons */}
-      <div className="absolute inset-0 -z-5">
-        {techIcons.map((tech, index) => (
-          <motion.div
-            key={tech.label}
-            className="absolute"
-            style={{
-              left: `${20 + index * 25}%`,
-              top: `${30 + index * 15}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 4 + index,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="p-4 bg-primary/10 rounded-full backdrop-blur-sm border border-primary/20">
-              <tech.icon className="h-6 w-6 text-primary" />
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.08 }}
+              className="section-title max-w-5xl text-[3.2rem] sm:text-[4.2rem] xl:text-[5.9rem]"
+            >
+              Building useful software with strong backend foundations and cleaner product execution.
+            </motion.h1>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <motion.div
-            className="mb-6"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary font-mono text-sm border border-primary/20 mb-4">
-              {"{ Software Product Developer  }"}
-            </span>
-          </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.16 }}
+              className="section-copy max-w-3xl"
+            >
+              {portfolioData.summary}
+            </motion.p>
 
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Hi, I'm <span className="code-gradient">Aryam Sharma</span>
-          </motion.h1>
-
-          <motion.div
-            className="text-2xl md:text-3xl text-muted-foreground mb-8 font-mono"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <span className="text-primary">const</span> role = [
-            <br />
-            <span className="ml-4 text-green-500">Full Stack Developer</span>
-            <br />
-            <span className="ml-4 text-blue-500">Software Product Developer</span>
-            <br />
-            <span className="ml-4 text-purple-500">Backend Engineer</span>
-            <br />
-            <span className="ml-4 text-purple-500">AI/ML Developer</span>
-            <br />
-            ];
-          </motion.div>
-
-          <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            Specialized in building full scalable systems, microservices architecture, and high-performance
-            applications. Expert in designing robust APIs, optimizing database performance, and implementing
-            cloud-native solutions.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            <Button size="lg" className="group pulse-glow" asChild>
-              <a
-                href="https://drive.google.com/file/d/1mZAwzG5MAjpIHEFmKODHijd79YQWR6fa/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.24 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              <Button size="lg" className="rounded-full bg-foreground px-7 text-background hover:bg-foreground/90 pulse-glow" asChild>
+                <a href={portfolioData.resumeDownloadUrl} target="_blank" rel="noreferrer">
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full border-border/80 bg-card/70 px-7 hover:bg-card"
+                asChild
               >
-                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                Download Resume
-              </a>
-            </Button>
+                <a href="https://github.com/aryam643" target="_blank" rel="noreferrer">
+                  View GitHub
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </motion.div>
 
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                  className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 border border-primary/20"
-                >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.32 }}
+              className="mt-10 flex flex-wrap gap-3"
+            >
+              {portfolioData.socialLinks.map((link) => {
+                const Icon = socialIcons[link.label as keyof typeof socialIcons]
+
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <Icon className="h-4 w-4" />
+                    {link.label}
+                  </a>
+                )
+              })}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="mt-12 grid max-w-4xl gap-3 sm:grid-cols-2 xl:grid-cols-4"
+            >
+              {portfolioData.stats.map((stat) => (
+                <div key={stat.label} className="metric-tile">
+                  <p className="text-[0.7rem] uppercase tracking-[0.24em] text-muted-foreground">{stat.label}</p>
+                  <p className="mt-3 text-3xl font-semibold display-font">{stat.value}</p>
+                </div>
               ))}
-            </div>
-          </motion.div>
-        </motion.div>
+            </motion.div>
+          </div>
 
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-            <ChevronDown className="h-6 w-6 text-muted-foreground" />
+          <motion.div
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="paper-card soft-grid p-7 md:p-8">
+              <div className="flex items-center justify-between">
+                <span className="section-kicker">Current Track</span>
+                <span className="text-[0.68rem] uppercase tracking-[0.32em] text-muted-foreground">01 / Signal</span>
+              </div>
+
+              <div className="mt-10">
+                <p className="text-[0.7rem] uppercase tracking-[0.3em] text-muted-foreground">Active Role</p>
+                <div className="mt-3 min-h-[5rem]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeRole}
+                      initial={{ opacity: 0, y: 22, filter: "blur(8px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -22, filter: "blur(8px)" }}
+                      transition={{ duration: 0.35 }}
+                      className="text-3xl font-semibold leading-tight display-font md:text-4xl"
+                    >
+                      {activeRole}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+
+              <div className="accent-divider mt-8" />
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-[1.35rem] border border-border/80 bg-background/75 p-4">
+                  <p className="text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground">Base</p>
+                  <p className="mt-2 text-lg font-semibold">{portfolioData.location}</p>
+                </div>
+                <div className="rounded-[1.35rem] border border-border/80 bg-background/75 p-4">
+                  <p className="text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
+                  <a href={`mailto:${portfolioData.email}`} className="mt-2 block text-lg font-semibold hover:text-primary">
+                    {portfolioData.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-3">
+                {portfolioData.focusAreas.slice(0, 4).map((area, index) => (
+                  <div key={area.title} className="noise-dot rounded-[1.35rem] border border-border/75 bg-card/70 p-4 pl-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-sm font-semibold">{area.title}</p>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{area.description}</p>
+                      </div>
+                      <span className="text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground">
+                        0{index + 1}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, rotate: -6, y: 10 }}
+              animate={{ opacity: 1, rotate: -4, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="paper-card absolute -left-2 top-8 hidden max-w-[14rem] px-4 py-3 md:block"
+            >
+              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">Performance</p>
+              <p className="mt-2 text-sm font-medium">10K+ API requests optimized with query tuning and Redis caching.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, rotate: 6, y: 10 }}
+              animate={{ opacity: 1, rotate: 4, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="ink-card absolute -right-2 bottom-10 hidden max-w-[14rem] px-4 py-3 md:block"
+            >
+              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-slate-300">Production Mindset</p>
+              <p className="mt-2 text-sm font-medium text-slate-100">
+                Practical engineering over theory theatre. Ship it, profile it, improve it.
+              </p>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
