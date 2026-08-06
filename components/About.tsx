@@ -96,15 +96,15 @@ const About = () => {
 
             <div className="ink-card p-7 md:p-8">
               <div className="relative z-10">
-                <p className="text-[0.68rem] uppercase tracking-[0.3em] text-slate-300">Working Style</p>
+                <p className="text-[0.68rem] uppercase tracking-[0.3em] text-stone-300">Working Style</p>
                 <h3 className="mt-5 text-3xl font-semibold display-font text-white">Ship practical systems. Keep them readable.</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">
+                <p className="mt-4 text-sm leading-7 text-stone-300">
                   I prefer designs that survive contact with production: small enough to reason about, fast enough to
                   feel good, and structured enough that the next feature doesn&apos;t become a rewrite.
                 </p>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {["Backend correctness", "Fast iteration", "Measured performance", "Clear code paths"].map((item) => (
-                    <div key={item} className="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100">
+                    <div key={item} className="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-stone-100">
                       {item}
                     </div>
                   ))}
@@ -113,20 +113,6 @@ const About = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-          transition={{ duration: 0.7, delay: 0.18 }}
-          className="mt-8 grid gap-4 md:grid-cols-4"
-        >
-          {portfolioData.stats.map((stat) => (
-            <div key={stat.label} className="paper-card p-5">
-              <p className="text-[0.68rem] uppercase tracking-[0.26em] text-muted-foreground">{stat.label}</p>
-              <p className="mt-4 text-4xl font-semibold display-font">{stat.value}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowUpRight, ExternalLink, Github, Server, Database, Zap, Users } from "lucide-react"
+import { ArrowUpRight, ExternalLink, Github, Server, Database, Zap, Users, Smartphone } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
 
 const projectIconMap = {
@@ -12,6 +12,7 @@ const projectIconMap = {
   database: Database,
   zap: Zap,
   server: Server,
+  mobile: Smartphone,
 } as const
 
 const Projects = () => {
@@ -30,10 +31,11 @@ const Projects = () => {
         >
           <div>
             <div className="section-kicker">Projects</div>
-            <h2 className="section-title max-w-4xl">A portfolio built around systems, product surfaces, and technical range rather than filler.</h2>
+            <h2 className="section-title max-w-4xl">Production systems built for real users, plus a couple of range-showing side builds.</h2>
             <p className="section-copy max-w-3xl">
-              I&apos;ve selected projects that show different strengths: real-time collaboration, systems programming,
-              dashboard work, AI integration, and product-oriented full-stack execution.
+              The first three are live, in-production work: a CRM handling thousands of real leads, a state-machine-driven
+              dispatch portal, and a systems-programming engine built against clock, not just requirements. The rest show
+              range across platforms.
             </p>
           </div>
 
@@ -48,7 +50,8 @@ const Projects = () => {
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {portfolioData.projects.map((project, index) => {
             const Icon = projectIconMap[project.iconKey as keyof typeof projectIconMap]
-            const isFeatured = index === 0 || index === 3
+            const isFeatured = project.featured
+            const hasLinks = Boolean(project.sourceCode || project.livePreview)
 
             return (
               <motion.article
@@ -71,12 +74,23 @@ const Projects = () => {
                         </div>
                       </div>
                       <Badge variant="outline" className="rounded-full border-border/80 px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em]">
-                        Active
+                        {project.status}
                       </Badge>
                     </div>
 
                     <h3 className="mt-8 text-3xl font-semibold leading-tight display-font md:text-4xl">{project.name}</h3>
                     <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">{project.description}</p>
+
+                    {"highlights" in project && project.highlights && (
+                      <ul className="mt-5 max-w-2xl space-y-2.5">
+                        {project.highlights.map((point) => (
+                          <li key={point} className="flex items-start gap-3 text-sm leading-6 text-muted-foreground">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
                     <div className="mt-8 flex flex-wrap gap-2">
                       {project.stack.map((tech) => (
@@ -86,13 +100,15 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    <div className="mt-8 flex flex-wrap gap-3">
-                      <Button size="sm" className="rounded-full bg-foreground px-5 text-background hover:bg-foreground/90" asChild>
-                        <a href={project.sourceCode} target="_blank" rel="noreferrer">
-                          <Github className="mr-2 h-4 w-4" />
-                          Source Code
-                        </a>
-                      </Button>
+                    <div className="mt-8 flex flex-wrap items-center gap-3">
+                      {project.sourceCode && (
+                        <Button size="sm" className="rounded-full bg-foreground px-5 text-background hover:bg-foreground/90" asChild>
+                          <a href={project.sourceCode} target="_blank" rel="noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            Source Code
+                          </a>
+                        </Button>
+                      )}
                       {project.livePreview && (
                         <Button size="sm" variant="outline" className="rounded-full border-border/80 bg-card/70 px-5 hover:bg-card" asChild>
                           <a href={project.livePreview} target="_blank" rel="noreferrer">
@@ -100,6 +116,9 @@ const Projects = () => {
                             Live Preview
                           </a>
                         </Button>
+                      )}
+                      {!hasLinks && "note" in project && project.note && (
+                        <span className="text-sm italic text-muted-foreground">{project.note}</span>
                       )}
                     </div>
                   </div>
@@ -122,14 +141,8 @@ const Projects = () => {
 
                     <div className="accent-divider mt-8" />
 
-                    <p className="mt-8 text-xs uppercase tracking-[0.28em] text-muted-foreground">
-                      {isFeatured ? "Featured build" : "Supporting build"}
-                    </p>
-                    <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                      {isFeatured
-                        ? "Chosen for the portfolio because it combines user-facing polish with meaningful technical constraints."
-                        : "Included because it adds range without repeating the same problem shape."}
-                    </p>
+                    <p className="mt-8 text-xs uppercase tracking-[0.28em] text-muted-foreground">{project.highlightLabel}</p>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.highlightNote}</p>
                   </div>
                 </div>
               </motion.article>

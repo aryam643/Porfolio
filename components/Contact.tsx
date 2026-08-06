@@ -88,18 +88,18 @@ const Contact = () => {
             className="ink-card p-7 md:p-8"
           >
             <div className="relative z-10">
-              <div className="section-kicker border-white/15 bg-white/5 text-slate-300">Contact</div>
+              <div className="section-kicker border-white/15 bg-white/5 text-stone-300">Contact</div>
               <h2 className="mt-7 text-5xl font-semibold leading-[0.94] text-white display-font md:text-6xl">
                 Let&apos;s build the next useful thing.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-slate-300">
+              <p className="mt-5 max-w-xl text-base leading-7 text-stone-300">
                 I&apos;m most interested in backend-heavy product teams, full-stack roles with strong execution
                 standards, and technically honest work where reliability actually matters.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-2">
                 {["Backend", "Full Stack", "Real-time Apps", "Product Engineering"].map((tag) => (
-                  <Badge key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-slate-100 hover:bg-white/10">
+                  <Badge key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-stone-100 hover:bg-white/10">
                     {tag}
                   </Badge>
                 ))}
@@ -113,13 +113,13 @@ const Contact = () => {
                         <info.icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-[0.68rem] uppercase tracking-[0.28em] text-slate-400">{info.label}</p>
+                        <p className="text-[0.68rem] uppercase tracking-[0.28em] text-stone-400">{info.label}</p>
                         {info.href ? (
-                          <a href={info.href} className="mt-2 block text-base font-medium text-slate-100 hover:text-white">
+                          <a href={info.href} className="mt-2 block text-base font-medium text-stone-100 hover:text-white">
                             {info.value}
                           </a>
                         ) : (
-                          <p className="mt-2 text-base font-medium text-slate-100">{info.value}</p>
+                          <p className="mt-2 text-base font-medium text-stone-100">{info.value}</p>
                         )}
                       </div>
                     </div>
@@ -134,7 +134,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-slate-100 transition-colors hover:bg-white/10"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-sm text-stone-100 transition-colors hover:bg-white/10"
                   >
                     <social.icon className="h-4 w-4" />
                     {social.label}
@@ -144,10 +144,10 @@ const Contact = () => {
 
               <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
                 <div className="flex items-center gap-3">
-                  <Coffee className="h-5 w-5 text-orange-300" />
-                  <p className="text-sm font-medium text-slate-100">Preferred conversations</p>
+                  <Coffee className="h-5 w-5 text-bronze" />
+                  <p className="text-sm font-medium text-stone-100">Preferred conversations</p>
                 </div>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
+                <p className="mt-3 text-sm leading-7 text-stone-300">
                   Production Django work, React product interfaces, API-heavy features, platform reliability, and
                   product engineering roles with strong execution standards.
                 </p>

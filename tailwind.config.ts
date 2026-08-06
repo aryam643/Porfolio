@@ -13,6 +13,13 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			bronze: '#cb997e',
+  			petal: '#eddcd2',
+  			linen: '#fff1e6',
+  			parchment: '#f0efeb',
+  			sand: '#ddbea9',
+  			sage: '#a5a58d',
+  			ash: '#b7b7a4',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

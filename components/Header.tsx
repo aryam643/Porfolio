@@ -49,7 +49,6 @@ const Header = () => {
             <Terminal className="h-5 w-5" />
           </div>
           <div className="leading-tight">
-            <p className="text-[0.62rem] uppercase tracking-[0.34em] text-muted-foreground">Portfolio 2026</p>
             <p className="text-sm font-semibold md:text-base">{portfolioData.shortName}</p>
           </div>
         </a>
@@ -133,7 +132,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="mx-auto mt-2 h-0.5 max-w-7xl origin-left rounded-full bg-gradient-to-r from-orange-400 via-primary to-teal-500" style={{ scaleX }} />
+      <motion.div className="mx-auto mt-2 h-0.5 max-w-7xl origin-left rounded-full bg-gradient-to-r from-bronze via-primary to-sage" style={{ scaleX }} />
     </header>
   )
 }
