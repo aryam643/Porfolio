@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowUpRight, Code2, Heart, Terminal } from "lucide-react"
+import { ArrowUpRight, Code2, Terminal } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
 
 const Footer = () => {
@@ -28,11 +28,8 @@ const Footer = () => {
               </div>
               <h3 className="mt-6 text-4xl font-semibold display-font">{portfolioData.shortName}</h3>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-                © {currentYear} {portfolioData.name}. Designed and built as a quieter, more editorial portfolio around
-                real backend and product engineering work.
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 text-sm text-muted-foreground">
-                Made with <Heart className="h-4 w-4 text-primary" /> for practical software, not fluff.
+                © {currentYear} {portfolioData.name}. Backend engineering and product work, built to hold up in
+                production.
               </p>
             </div>
 

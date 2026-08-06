@@ -43,12 +43,12 @@ const Skills = () => {
                   <div className="relative z-10">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className={`text-[0.68rem] uppercase tracking-[0.28em] ${highlight ? "text-slate-300" : "text-muted-foreground"}`}>
+                        <p className={`text-[0.68rem] uppercase tracking-[0.28em] ${highlight ? "text-stone-300" : "text-muted-foreground"}`}>
                           {`Category 0${index + 1}`}
                         </p>
                         <h3 className={`mt-4 text-3xl font-semibold display-font ${highlight ? "text-white" : ""}`}>{category.title}</h3>
                       </div>
-                      <span className={`text-[0.68rem] uppercase tracking-[0.28em] ${highlight ? "text-slate-400" : "text-muted-foreground"}`}>
+                      <span className={`text-[0.68rem] uppercase tracking-[0.28em] ${highlight ? "text-stone-400" : "text-muted-foreground"}`}>
                         {category.items.length} items
                       </span>
                     </div>
@@ -62,7 +62,7 @@ const Skills = () => {
                           variant="outline"
                           className={`rounded-full px-3 py-1.5 text-xs ${
                             highlight
-                              ? "border-white/15 bg-white/5 text-slate-100"
+                              ? "border-white/15 bg-white/5 text-stone-100"
                               : "border-border/75 bg-background/80 text-foreground"
                           }`}
                         >

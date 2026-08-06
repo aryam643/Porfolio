@@ -36,9 +36,9 @@ const Hero = () => {
               transition={{ duration: 0.6 }}
               className="section-kicker"
             >
-              Chandigarh, India
+              {portfolioData.location}
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Available for backend and product engineering roles
+              {portfolioData.availability}
             </motion.div>
 
             <motion.h1
@@ -169,19 +169,23 @@ const Hero = () => {
               </div>
 
               <div className="mt-8 space-y-3">
-                {portfolioData.focusAreas.slice(0, 4).map((area, index) => (
-                  <div key={area.title} className="noise-dot rounded-[1.35rem] border border-border/75 bg-card/70 p-4 pl-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-sm font-semibold">{area.title}</p>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{area.description}</p>
+                <p className="text-[0.7rem] uppercase tracking-[0.3em] text-muted-foreground">Currently Building</p>
+                {portfolioData.projects
+                  .filter((project) => project.featured)
+                  .slice(0, 2)
+                  .map((project) => (
+                    <div key={project.name} className="noise-dot rounded-[1.35rem] border border-border/75 bg-card/70 p-4 pl-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <p className="text-sm font-semibold">{project.name}</p>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{project.metrics[0]}</p>
+                        </div>
+                        <span className="text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground">
+                          {project.category}
+                        </span>
                       </div>
-                      <span className="text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground">
-                        0{index + 1}
-                      </span>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
 
@@ -191,8 +195,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.45 }}
               className="paper-card absolute -left-2 top-8 hidden max-w-[14rem] px-4 py-3 md:block"
             >
-              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">Performance</p>
-              <p className="mt-2 text-sm font-medium">10K+ API requests optimized with query tuning and Redis caching.</p>
+              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">Scale</p>
+              <p className="mt-2 text-sm font-medium">6,000+ live leads flowing through a webhook pipeline built solo.</p>
             </motion.div>
 
             <motion.div
@@ -201,8 +205,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="ink-card absolute -right-2 bottom-10 hidden max-w-[14rem] px-4 py-3 md:block"
             >
-              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-slate-300">Production Mindset</p>
-              <p className="mt-2 text-sm font-medium text-slate-100">
+              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-stone-300">Production Mindset</p>
+              <p className="mt-2 text-sm font-medium text-stone-100">
                 Practical engineering over theory theatre. Ship it, profile it, improve it.
               </p>
             </motion.div>

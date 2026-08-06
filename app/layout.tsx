@@ -9,7 +9,7 @@ import { portfolioData } from "@/lib/portfolio-data"
 
 export const metadata: Metadata = {
   title: `${portfolioData.name} | ${portfolioData.headline}`,
-  description: portfolioData.summary,
+  description: portfolioData.metaDescription,
   icons: {
     icon: "/placeholder-logo.svg",
   },
