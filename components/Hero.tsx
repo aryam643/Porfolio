@@ -1,7 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowUpRight, Download, Github, Globe, Linkedin, Mail } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
@@ -14,17 +13,6 @@ const socialIcons = {
 } as const
 
 const Hero = () => {
-  const [activeRoleIndex, setActiveRoleIndex] = useState(0)
-  const activeRole = portfolioData.roles[activeRoleIndex]
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveRoleIndex((current) => (current + 1) % portfolioData.roles.length)
-    }, 2200)
-
-    return () => window.clearInterval(interval)
-  }, [])
-
   return (
     <section id="top" className="section-shell pt-36 md:pt-40">
       <div className="section-inner">
@@ -47,7 +35,7 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.08 }}
               className="section-title max-w-5xl text-[3.2rem] sm:text-[4.2rem] xl:text-[5.9rem]"
             >
-              Building useful software with strong backend foundations and cleaner product execution.
+              I build reliable backend systems for real products.
             </motion.h1>
 
             <motion.p
@@ -65,23 +53,12 @@ const Hero = () => {
               transition={{ duration: 0.7, delay: 0.24 }}
               className="mt-8 flex flex-wrap gap-3"
             >
-              <Button size="lg" className="rounded-full bg-foreground px-7 text-background hover:bg-foreground/90 pulse-glow" asChild>
-                <a href={portfolioData.resumeDownloadUrl} target="_blank" rel="noreferrer">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full border-border/80 bg-card/70 px-7 hover:bg-card"
-                asChild
-              >
-                <a href="https://github.com/aryam643" target="_blank" rel="noreferrer">
-                  View GitHub
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <a className="inline-flex h-11 items-center gap-2 rounded-lg bg-foreground px-6 font-medium text-background" href={portfolioData.resumeDownloadUrl} target="_blank" rel="noreferrer">
+                <Download className="h-4 w-4" /> Download resume
+              </a>
+              <a className="inline-flex h-11 items-center gap-2 rounded-lg border border-border bg-card px-6 font-medium" href="https://github.com/aryam643" target="_blank" rel="noreferrer">
+                View GitHub <ArrowUpRight className="h-4 w-4" />
+              </a>
             </motion.div>
 
             <motion.div
@@ -91,7 +68,7 @@ const Hero = () => {
               className="mt-10 flex flex-wrap gap-3"
             >
               {portfolioData.socialLinks.map((link) => {
-                const Icon = socialIcons[link.label as keyof typeof socialIcons]
+                const Icon = socialIcons[link.label as keyof typeof socialIcons] ?? Globe
 
                 return (
                   <a
@@ -138,18 +115,7 @@ const Hero = () => {
               <div className="mt-10">
                 <p className="text-[0.7rem] uppercase tracking-[0.3em] text-muted-foreground">Active Role</p>
                 <div className="mt-3 min-h-[5rem]">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeRole}
-                      initial={{ opacity: 0, y: 22, filter: "blur(8px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, y: -22, filter: "blur(8px)" }}
-                      transition={{ duration: 0.35 }}
-                      className="text-3xl font-semibold leading-tight display-font md:text-4xl"
-                    >
-                      {activeRole}
-                    </motion.div>
-                  </AnimatePresence>
+                  <p className="text-3xl font-semibold leading-tight display-font md:text-4xl">{portfolioData.headline}</p>
                 </div>
               </div>
 
@@ -189,27 +155,6 @@ const Hero = () => {
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, rotate: -6, y: 10 }}
-              animate={{ opacity: 1, rotate: -4, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="paper-card absolute -left-2 top-8 hidden max-w-[14rem] px-4 py-3 md:block"
-            >
-              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground">Scale</p>
-              <p className="mt-2 text-sm font-medium">6,000+ live leads flowing through a webhook pipeline built solo.</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, rotate: 6, y: 10 }}
-              animate={{ opacity: 1, rotate: 4, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="ink-card absolute -right-2 bottom-10 hidden max-w-[14rem] px-4 py-3 md:block"
-            >
-              <p className="text-[0.65rem] uppercase tracking-[0.28em] text-stone-300">Production Mindset</p>
-              <p className="mt-2 text-sm font-medium text-stone-100">
-                Practical engineering over theory theatre. Ship it, profile it, improve it.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

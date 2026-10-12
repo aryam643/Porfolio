@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowUpRight, ExternalLink, Github, Server, Database, Zap, Users, Smartphone } from "lucide-react"
+import { ArrowUpRight, ExternalLink, Github, Server, Database, Zap, Users, Smartphone, Code2 } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
 
 const projectIconMap = {
@@ -13,6 +13,7 @@ const projectIconMap = {
   zap: Zap,
   server: Server,
   mobile: Smartphone,
+  code: Code2,
 } as const
 
 const Projects = () => {
@@ -49,7 +50,7 @@ const Projects = () => {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {portfolioData.projects.map((project, index) => {
-            const Icon = projectIconMap[project.iconKey as keyof typeof projectIconMap]
+            const Icon = projectIconMap[project.iconKey as keyof typeof projectIconMap] ?? Code2
             const isFeatured = project.featured
             const hasLinks = Boolean(project.sourceCode || project.livePreview)
 
