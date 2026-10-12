@@ -10,9 +10,6 @@ import { portfolioData } from "@/lib/portfolio-data"
 export const metadata: Metadata = {
   title: `${portfolioData.name} | ${portfolioData.headline}`,
   description: portfolioData.metaDescription,
-  icons: {
-    icon: "/placeholder-logo.svg",
-  },
 }
 
 export default function RootLayout({

@@ -20,16 +20,15 @@ const Skills = () => {
           className="max-w-4xl"
         >
           <div className="section-kicker">Skills</div>
-          <h2 className="section-title max-w-4xl">Breadth where it helps, depth where the work actually demands it.</h2>
+          <h2 className="section-title max-w-4xl">Tools I use to ship and support software.</h2>
           <p className="section-copy max-w-3xl">
-            This stack is intentionally broad because the work has been broad. Most of my strongest execution sits at
-            the intersection of Django, React, database work, API design, and product engineering.
+            Most of my day-to-day work is in Python, Django, PostgreSQL, Redis, and API design, with React and C++ for product and systems work.
           </p>
         </motion.div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {portfolioData.skillGroups.map((category, index) => {
-            const highlight = index === 0 || index === 4
+            const highlight = false
 
             return (
               <motion.div

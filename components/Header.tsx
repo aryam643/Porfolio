@@ -2,16 +2,12 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "@/components/mode-toggle"
 import { ArrowUpRight, Code2, Menu, Terminal, X } from "lucide-react"
 import { portfolioData } from "@/lib/portfolio-data"
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -40,7 +36,7 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`mx-auto flex max-w-7xl items-center gap-3 rounded-[1.75rem] border border-border/80 px-4 py-3 backdrop-blur-xl transition-all duration-300 md:px-5 ${
+        className={`mx-auto flex max-w-6xl items-center gap-3 rounded-2xl border border-border/80 px-4 py-2.5 backdrop-blur-xl transition-all duration-300 md:px-5 ${
           isScrolled ? "bg-background/88 shadow-[0_20px_60px_rgba(28,32,41,0.10)]" : "bg-background/72"
         }`}
       >
@@ -77,14 +73,12 @@ const Header = () => {
             Resume
             <ArrowUpRight className="h-4 w-4" />
           </a>
-          <ModeToggle />
         </div>
 
         <div className="ml-auto flex items-center gap-2 md:hidden">
-          <ModeToggle />
-          <Button variant="ghost" size="icon" className="rounded-full" onClick={() => setIsMobileMenuOpen((open) => !open)}>
+          <button type="button" aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-secondary" onClick={() => setIsMobileMenuOpen((open) => !open)}>
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          </button>
         </div>
       </motion.div>
 
@@ -132,7 +126,6 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <motion.div className="mx-auto mt-2 h-0.5 max-w-7xl origin-left rounded-full bg-gradient-to-r from-bronze via-primary to-sage" style={{ scaleX }} />
     </header>
   )
 }
